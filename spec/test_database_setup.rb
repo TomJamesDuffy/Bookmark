@@ -1,4 +1,3 @@
-
 require 'pg'
 
 p "Setting up test database..."
