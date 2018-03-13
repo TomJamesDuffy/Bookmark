@@ -1,11 +1,9 @@
 require 'sinatra/base'
 require_relative 'link.rb'
-require_relative 'database_connection.rb'
+require_relative 'database_connection_setup.rb'
 
 class Bookmark < Sinatra::Base
 
-  DatabaseConnection.setup('bookmark_manager_test') if ENV['ENVIRONMENT'] == 'test'
-  DatabaseConnection.setup('bookmark_manager')
 
   post '/create-new-link' do
     Link.create(params[:addlink])

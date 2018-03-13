@@ -4,15 +4,17 @@ describe DatabaseConnection do
   subject(:dc) { DatabaseConnection.new }
 
   describe '#setup' do
-    it 'sets up the connection to the database' do
-      expect(DatabaseConnection.setup('bookmark_manager_test')).to_not be_nil
+    it 'this connection is persistent' do
+      connection = DatabaseConnection.setup('bookmark_manager_test')
+      expect(connection).to eq connection
     end
   end
 
   describe '#query' do
     it 'executes the query string on the correct database' do
-      DatabaseConnection.setup('bookmark_manager_test')
-      expect(DatabaseConnection.query('SELECT * FROM links')).to_not be_nil
+      connection = DatabaseConnection.setup('bookmark_manager_test')
+      expect(connection).to receive(:exec).with('SELECT * FROM links')
+      expect(DatabaseConnection.query('SELECT * FROM links'))
     end
   end
 end
