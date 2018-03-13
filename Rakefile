@@ -8,9 +8,9 @@ task :test_database_setup do
   # Clear the database
   connection.exec("TRUNCATE links;")
 
-  connection.exec("INSERT INTO links VALUES(1, 'www.alfiecleaners.com');")
-  connection.exec("INSERT INTO links VALUES(2, 'www.rickyhewitttech.com');")
-  connection.exec("INSERT INTO links VALUES(3, 'www.nebulasolutions.com');")
+  connection.exec("INSERT INTO links VALUES(1, 'https://www.alfiecleaners.com');")
+  connection.exec("INSERT INTO links VALUES(2, 'https://www.rickyhewitttech.com');")
+  connection.exec("INSERT INTO links VALUES(3, 'https://www.nebulasolutions.com');")
 end
 
 task :setup do

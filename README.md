@@ -34,17 +34,20 @@ link_spec.rb
 2) Install dependencies listed in the Gemfile.  
 `bundle install`
 
-3) Using rake, setup the databases required for the application to run.  
+3) URL validation is performed by firing a request to httpie.
+`brew install httpie`
+
+4) Using rake, setup the databases required for the application to run.  
 `rake setup`
 
-4) Run tests to confirm set up has occurred correctly.  
+5) Run tests to confirm set up has occurred correctly.  
 `rspec`
 
-5) Begin hosting your server through rackup and proceed to the port specified. Alternatively, go to a port of your choice by invoking the -p flag and specifying the port.  
+6) Begin hosting your server through rackup and proceed to the port specified. Alternatively, go to a port of your choice by invoking the -p flag and specifying the port.  
 `rackup`  
 `rackup -p [port number]`
 
-6) Proceed to the below url to view the application.  
+7) Proceed to the below url to view the application.  
 http://localhost:[port number]/
 
 ## Instructions for use
