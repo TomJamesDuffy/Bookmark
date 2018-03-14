@@ -27,18 +27,18 @@ class Bookmark < Sinatra::Base
   end
 
   post '/update-link' do
-    if params[:id][-1] != "1"
-      session[:message] = params[:id]
-      redirect '/update-link'
-    else
-      Links.update(params[:id], params[:url], params[:title])
-      redirect '/'
-    end
+    session[:message] = params[:id]
+    redirect '/update-link'
   end
 
   get '/update-link' do
     @links = Links.all
     erb(:update)
+  end
+
+  post '/' do
+    Links.update(params[:id], params[:url], params[:title])
+    redirect '/'
   end
 
 

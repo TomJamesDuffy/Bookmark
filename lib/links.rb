@@ -34,7 +34,6 @@ class Links
 
 
   def self.update(id, url, title)
-    target = id.split('|')[1][0...-1]
-    DatabaseConnection.query("UPDATE links SET title='#{title}', url='#{url}' where title='#{target}'")
+    DatabaseConnection.query("UPDATE links SET title='#{title}', url='#{url}' where id='#{id}';")
   end
 end
