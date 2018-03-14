@@ -31,4 +31,10 @@ class Links
   def self.delete(title)
     DatabaseConnection.query("DELETE FROM links where title='#{title}'")
   end
+
+
+  def self.update(id, url, title)
+    target = id.split('|')[1][0...-1]
+    DatabaseConnection.query("UPDATE links SET title='#{title}', url='#{url}' where title='#{target}'")
+  end
 end

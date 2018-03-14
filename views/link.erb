@@ -9,6 +9,11 @@
       <input type="submit" value="Delete">
     </form>
 
+    <form action='/update-link' method="post">
+      <input type="hidden" value="<%="#{link['url']}|#{link['title']}"%>" name="id">
+      <input type="submit" value="Edit">
+    </form>
+
 <% end %>
 </ul>
 

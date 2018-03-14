@@ -1,0 +1,9 @@
+<form action='/update-link' method='post'>
+  <input type="hidden" value="<%= session[:message]%>1" name="id">
+  <label for="url">URL</label>
+  <input type="text" name="url">
+  <label for="title">Title</label>
+  <input type="text" name="title">
+  <input type="submit" value="Commit">
+</form>
+
