@@ -1,9 +1,0 @@
-<% @links.each do |link| %>
-  <%= link %><br>
-<% end %>
-
-<form action='/create-new-link' method=post>
-  <input type="submit" value="Add link">
-  <input type="text" name="addlink"> 
-</form>
-<%= styled_flash %>

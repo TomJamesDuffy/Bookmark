@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" href="/style.css">
+
+<ul>
+<% @links.each do |link| %>
+  <li><a href="<%="https://#{link['url']}"%>"><%="#{link['title']}"%></li></a>
+<% end %>
+</ul>
+
+<form action='/create-new-link' method=post>
+  <label for="url">URL</label>
+  <input type="text" name="addlink"> 
+  <label for="title">Title</label>
+  <input type="text" name="addtitle"> 
+  <input type="submit" value="Submit">
+</form>
+<%= styled_flash %>
