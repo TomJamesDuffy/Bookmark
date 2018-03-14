@@ -6,11 +6,10 @@ require_relative 'link.rb'
 
 class Links
 
-    attr_reader :chain
-
     CHAIN = []
 
   def self.all
+    CHAIN.clear
     result = DatabaseConnection.query("SELECT * FROM links")
     result.each { |link| CHAIN.push(Link.new(link))}
   end
@@ -29,4 +28,7 @@ class Links
     #     #link =~ /\A#{URI::DEFAULT_PARSER.regexp[:ABS_URI]}\z/
   end
 
+  def self.delete(title)
+    DatabaseConnection.query("DELETE FROM links where title='#{title}'")
+  end
 end

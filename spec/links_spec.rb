@@ -18,7 +18,29 @@ describe Links do
       expect(Links::CHAIN.find {|item| item.link["title"] == "barclays"  } ).to_not be_nil 
     end
   end
+
+  describe '#delete link' do
+    it 'deletes an existing link' do
+      Links.delete("Alfie")
+      Links.all
+      expect(Links::CHAIN.find {|item| item.link["title"] == "Alfie"  } ).to be_nil
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

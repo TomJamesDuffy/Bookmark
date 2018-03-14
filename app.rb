@@ -16,7 +16,13 @@ class Bookmark < Sinatra::Base
   register Sinatra::Flash
 
   post '/create-new-link' do
-    flash[:notice] = "You must submit a valid URL." unless Links.create(params[:addlink], params[:addtitle])
+    link = Links.create(params[:addlink], params[:addtitle])
+    flash[:notice] = "You must submit a valid URL." unless link 
+    redirect '/'
+  end
+
+  post '/delete-link' do
+    link = Links.delete(params[:deletelinktitle])
     redirect '/'
   end
 

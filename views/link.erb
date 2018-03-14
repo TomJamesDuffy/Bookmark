@@ -2,7 +2,13 @@
 
 <ul>
 <% @links.each do |link| %>
-  <li><a href="<%="https://#{link['url']}"%>"><%="#{link['title']}"%></li></a>
+  <li><a href="<%="https://#{link['url']}"%>"><%="#{link['title']}"%></a></li>
+
+    <form action='/delete-link' method="post">
+      <input type="hidden" value="<%="#{link['title']}"%>" name="deletelinktitle">
+      <input type="submit" value="Delete">
+    </form>
+
 <% end %>
 </ul>
 
@@ -11,6 +17,9 @@
   <input type="text" name="addlink"> 
   <label for="title">Title</label>
   <input type="text" name="addtitle"> 
-  <input type="submit" value="Submit">
+  <input type="submit" value="Add Link">
 </form>
+
 <%= styled_flash %>
+
+
