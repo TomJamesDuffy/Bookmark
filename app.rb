@@ -15,36 +15,35 @@ class Bookmark < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-  post '/create-new-link' do
+  post '/link/new' do
     link = Links.create(params[:addlink], params[:addtitle])
     flash[:notice] = "You must submit a valid URL." unless link 
-    redirect '/'
+    redirect '/link'
   end
 
-  post '/delete-link' do
+  post '/link/delete' do
     link = Links.delete(params[:deletelinktitle])
-    redirect '/'
+    redirect '/link'
   end
 
-  post '/update-link' do
+  post '/link/update' do
     session[:message] = params[:id]
-    redirect '/update-link'
+    redirect '/link/update'
   end
 
-  get '/update-link' do
+  get '/link/update' do
     @links = Links.all
-    erb(:update)
+    erb :'link/update'
   end
 
-  post '/' do
+  post '/link' do
     Links.update(params[:id], params[:url], params[:title])
-    redirect '/'
+    redirect '/link'
   end
 
-
-  get '/' do
+  get '/link' do
     @links = Links.all
-    erb(:link)
+    erb :'link/index'
   end
 
   run! if app_file == $0

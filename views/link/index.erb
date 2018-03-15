@@ -2,22 +2,27 @@
 
 <ul>
 <% @links.each do |link| %>
-  <li><a href="<%="https://#{link['url']}"%>"><%="#{link['title']}"%></a></li>
-
-    <form action='/delete-link' method="post">
+  <li><a href="<%="https://#{link['url']}"%>"><%="#{link['title']}"%></a>
+  <div>
+  <div>
+    <form action='/link/delete' method="post">
       <input type="hidden" value="<%="#{link['title']}"%>" name="deletelinktitle">
       <input type="submit" value="Delete">
     </form>
-
-    <form action='/update-link' method="post">
+  </div>
+  <div>
+    <form action='/link/update' method="post">
       <input type="hidden" value="<%="#{link['id']}"%>" name="id">
       <input type="submit" value="Edit">
     </form>
+  </div>
+  </div>
+  </li>
 
 <% end %>
 </ul>
 
-<form action='/create-new-link' method=post>
+<form action='/link/new' method=post>
   <label for="url">URL</label>
   <input type="text" name="addlink"> 
   <label for="title">Title</label>

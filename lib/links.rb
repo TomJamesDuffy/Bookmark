@@ -34,6 +34,6 @@ class Links
 
 
   def self.update(id, url, title)
-    DatabaseConnection.query("UPDATE links SET title='#{title}', url='#{url}' where id='#{id}';")
+    DatabaseConnection.query("UPDATE links SET title='#{title}', url='#{url}' where id='#{id}';") if LinkValidator.validate(url)
   end
 end
